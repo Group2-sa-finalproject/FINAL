@@ -411,9 +411,9 @@ $approved_schedules = ecotrackRows(
      LEFT JOIN users u ON cs.user_id = u.id
      LEFT JOIN users c ON cs.collector_id = c.id
      WHERE cs.status = 'Approved'
+       AND (cs.collector_id IS NULL OR cs.collector_id = 0)
      ORDER BY cs.collection_date ASC, cs.requested_time ASC"
 );
-
 
 $booked_dates = [];
 
@@ -456,6 +456,32 @@ foreach ($schedules as $s) {
 .schedule-page .calendar-day { min-height:105px; border:1px solid #e7ede8; border-radius:9px; padding:10px; background:#fff; min-width:0; }
 .schedule-page .calendar-day.available { background:#f5fbf6; border-color:#d7e9dc; }
 .schedule-page .calendar-day.booked { background:#fff7f4; border-color:#f3ded5; }
+/* REGULAR COLLECTION DAY - WEDNESDAY */
+.schedule-page .calendar-day.regular-collection {
+    background: #fff0f0;
+    border-color: #e8a5a5;
+}
+
+.schedule-page .calendar-day.regular-collection .day-number {
+    color: #c62828;
+}
+
+.schedule-page .calendar-day.regular-collection .calendar-empty {
+    color: #c62828;
+    font-weight: 700;
+}
+
+.schedule-page .regular-day-label {
+    display: block;
+    margin-top: 7px;
+    padding: 4px 5px;
+    border-radius: 5px;
+    background: #fde0e0;
+    color: #b42323;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.4;
+}
 .schedule-page .calendar-day.past { background:#f6f7f6; color:#a0aaa3; }
 .schedule-page .calendar-day.today { outline:2px solid #4a9b66; outline-offset:-2px; }
 .schedule-page .day-number { font-weight:750; font-size:13px; margin-bottom:8px; }
@@ -591,13 +617,32 @@ foreach ($schedules as $s) {
                     <?php for ($day = 1; $day <= $days_in_month; $day++): ?>
                         <?php
                         $calendar_date = $month . "-" . str_pad((string)$day, 2, "0", STR_PAD_LEFT);
+
                         $is_past = $calendar_date < $today;
                         $is_booked = isset($booked_dates[$calendar_date]);
-                        $day_class = $is_past ? "past" : ($is_booked ? "booked" : "available");
+
+                        // Wednesday = Regular Collection Day
+                        $is_regular_collection = (int) date("w", strtotime($calendar_date)) === 3;
+
+                        // Priority: Reserved dates first, then regular Wednesdays
+                        if ($is_booked || $is_regular_collection) {
+                            $day_class = "booked";
+                        } elseif ($is_past) {
+                            $day_class = "past";
+                        } else {
+                            $day_class = "available";
+                        }
                         ?>
                         <div class="calendar-day <?= $day_class ?> <?= $calendar_date === $today ? 'today' : '' ?>">
                             <div class="day-number"><?= $day ?></div>
-                            <?php if ($is_booked): ?>
+                                <?php if ($is_regular_collection): ?>
+                                    <span class="regular-day-label">
+                                        <i class="fas fa-recycle"></i>
+                                        Regular Collection Day
+                                    </span>
+                                <?php endif; ?>
+
+                                <?php if ($is_booked): ?>
                                 <?php foreach ($booked_dates[$calendar_date] as $booking): ?>
                                     <span class="calendar-name">
                                         <strong><?= htmlspecialchars($booking['fullname'] ?? 'Unknown Resident', ENT_QUOTES, 'UTF-8') ?></strong>
@@ -612,9 +657,20 @@ foreach ($schedules as $s) {
                 </div>
             </div>
             <div class="calendar-legend">
-                <span><i class="legend-dot available"></i>Available</span>
-                <span><i class="legend-dot booked"></i>Booked</span>
-                <span><i class="legend-dot past"></i>Past date</span>
+                <span>
+                    <i class="legend-dot available"></i>
+                    Available
+                </span>
+
+                <span>
+                    <i class="legend-dot booked"></i>
+                    Booked / Regular Collection Day
+                </span>
+
+                <span>
+                    <i class="legend-dot past"></i>
+                    Past date
+                </span>
             </div>
             <p class="calendar-note">Pending and approved requests reserve their dates. Completed or rejected requests do not reserve a date.</p>
         </div>
