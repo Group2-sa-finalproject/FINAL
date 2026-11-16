@@ -82,9 +82,7 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 
 <style>
 
-/* =========================================================
-   GENERAL
-========================================================= */
+/* GENERAL */
 
 * {
     box-sizing: border-box;
@@ -101,9 +99,7 @@ a {
     text-decoration: none;
 }
 
-/* =========================================================
-   SIDEBAR
-========================================================= */
+/* SIDEBAR */
 
 .sidebar {
     position: fixed;
@@ -183,9 +179,7 @@ a {
     color: #fff;
 }
 
-/* =========================================================
-   MAIN CONTENT
-========================================================= */
+/* MAIN CONTENT */
 
 .main-content {
     margin-left: 250px;
@@ -238,9 +232,7 @@ a {
     min-width: 0;
 }
 
-/* =========================================================
-   PAGE HEADER
-========================================================= */
+/* PAGE HEADER */
 
 .page-heading {
     margin-bottom: 25px;
@@ -259,9 +251,7 @@ a {
     margin: 0;
 }
 
-/* =========================================================
-   SECTION TITLE
-========================================================= */
+/* SECTION TITLE */
 
 .section-title {
     color: #45564d;
@@ -270,9 +260,7 @@ a {
     margin: 30px 0 18px;
 }
 
-/* =========================================================
-   TRACKING CARDS
-========================================================= */
+/* TRACKING CARDS */
 
 .tracking-card {
     background: white;
@@ -290,10 +278,6 @@ a {
     margin-bottom: 15px;
 }
 
-/* =========================================================
-   TRACKING ICON
-========================================================= */
-
 .dashboard-icon {
     width: 48px;
     height: 48px;
@@ -307,9 +291,7 @@ a {
     font-size: 21px;
 }
 
-/* =========================================================
-   COLLECTOR INFORMATION
-========================================================= */
+/* COLLECTOR INFORMATION */
 
 .collector-name {
     font-size: 16px;
@@ -335,9 +317,62 @@ a {
     color: #77847c;
 }
 
-/* =========================================================
-   MAP
-========================================================= */
+/* PICKUP INFORMATION */
+
+.pickup-info {
+    font-size: 13px;
+    color: #77847c;
+    margin-top: 7px;
+}
+
+.pickup-info i {
+    color: #198754;
+    width: 18px;
+}
+
+/* DISTANCE CARDS */
+
+.metric-card {
+    background: #fff;
+    border: 1px solid #e8eeea;
+    border-radius: 12px;
+    padding: 18px;
+    height: 100%;
+    box-shadow: 0 3px 12px rgba(0,0,0,.04);
+}
+
+.metric-icon {
+    width: 38px;
+    height: 38px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e5f5e9;
+    color: #23834b;
+    margin-bottom: 12px;
+}
+
+.metric-label {
+    font-size: 12px;
+    color: #849087;
+    margin-bottom: 5px;
+}
+
+.metric-value {
+    font-size: 20px;
+    font-weight: 800;
+    color: #183d2b;
+    overflow-wrap: anywhere;
+}
+
+.metric-description {
+    font-size: 11px;
+    color: #929b96;
+    margin-top: 5px;
+}
+
+/* MAP */
 
 #map {
     width: 100%;
@@ -360,9 +395,90 @@ a {
     line-height: 1.6;
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
+/* MAP LEGEND */
+
+.map-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    margin-top: 17px;
+    font-size: 12px;
+    color: #65746b;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.house-dot {
+    background: #198754;
+}
+
+.collector-dot {
+    background: #0d6efd;
+}
+
+.route-line {
+    width: 19px;
+    height: 4px;
+    background: #198754;
+    border-radius: 5px;
+}
+
+/* MAP MARKERS */
+
+.custom-map-icon {
+    background: transparent;
+    border: none;
+}
+
+.custom-map-icon div {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border: 3px solid #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,.3);
+    font-size: 16px;
+}
+
+.house-marker div {
+    background: #198754;
+}
+
+.collector-marker div {
+    background: #0d6efd;
+}
+
+/* TRACKING MESSAGE */
+
+.tracking-message {
+    padding: 12px 15px;
+    border-radius: 8px;
+    background: #f1f6f2;
+    color: #607168;
+    font-size: 13px;
+    margin-top: 15px;
+    line-height: 1.5;
+}
+
+.tracking-message i {
+    margin-right: 5px;
+}
+
+/* FOOTER */
 
 .dashboard-footer {
     margin-top: 35px;
@@ -373,9 +489,7 @@ a {
     text-align: center;
 }
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+/* RESPONSIVE */
 
 @media (max-width: 1000px) {
     .content {
@@ -439,6 +553,10 @@ a {
 
     #map {
         height: 400px;
+    }
+
+    .metric-value {
+        font-size: 18px;
     }
 }
 
@@ -556,7 +674,6 @@ a {
     <!-- PAGE CONTENT -->
     <main class="content">
 
-        <!-- PAGE HEADER -->
         <div class="page-heading">
 
             <h2>
@@ -565,17 +682,15 @@ a {
             </h2>
 
             <p>
-                Monitor the collector assigned to your household.
+                Monitor the collector assigned to your special pickup request.
             </p>
 
         </div>
 
         <!-- COLLECTOR INFORMATION -->
         <h6 class="section-title">
-
             <i class="fas fa-user me-2"></i>
             Assigned Collector Information
-
         </h6>
 
         <div class="tracking-card">
@@ -609,6 +724,21 @@ a {
 
                             </p>
 
+                            <p class="pickup-info" id="pickupDate">
+                                <i class="fas fa-calendar"></i>
+                                Pickup date: Waiting...
+                            </p>
+
+                            <p class="pickup-info" id="pickupAddress">
+                                <i class="fas fa-house"></i>
+                                Pickup address: Waiting...
+                            </p>
+
+                            <p class="pickup-info" id="lastUpdated">
+                                <i class="fas fa-clock"></i>
+                                Last GPS update: Waiting...
+                            </p>
+
                         </div>
 
                     </div>
@@ -619,29 +749,135 @@ a {
 
         </div>
 
-        <!-- LIVE COLLECTOR LOCATION -->
+        <!-- DISTANCE AND ETA -->
+        <h6 class="section-title">
+            <i class="fas fa-route me-2"></i>
+            Distance and Estimated Travel Time
+        </h6>
+
+        <div class="row g-3 mb-4">
+
+            <div class="col-md-4">
+
+                <div class="metric-card">
+
+                    <div class="metric-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+
+                    <div class="metric-label">
+                        Driving Distance
+                    </div>
+
+                    <div class="metric-value" id="drivingDistance">
+                        --
+                    </div>
+
+                    <div class="metric-description">
+                        Road distance to your house
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="metric-card">
+
+                    <div class="metric-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+
+                    <div class="metric-label">
+                        Estimated Travel Time
+                    </div>
+
+                    <div class="metric-value" id="estimatedTime">
+                        --
+                    </div>
+
+                    <div class="metric-description">
+                        Estimated route duration
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="metric-card">
+
+                    <div class="metric-icon">
+                        <i class="fas fa-location-arrow"></i>
+                    </div>
+
+                    <div class="metric-label">
+                        GPS Distance
+                    </div>
+
+                    <div class="metric-value" id="gpsDistance">
+                        --
+                    </div>
+
+                    <div class="metric-description">
+                        Straight-line distance
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- LIVE MAP -->
         <h6 class="section-title">
 
             <i class="fas fa-map-marker-alt me-2"></i>
-            Live Collector Location
+            Live Collector and House Location
 
         </h6>
 
         <div class="tracking-card">
 
             <h5>
-                <i class="fas fa-location-dot me-2 text-success"></i>
-                Collector Tracking Map
+                <i class="fas fa-map me-2 text-success"></i>
+                Special Pickup Tracking Map
             </h5>
 
             <p class="tracking-description">
-                View the real-time location of your assigned
-                garbage collector. The map automatically updates
-                every 5 seconds.
+                The map shows your registered household, your assigned
+                collector, and the estimated driving route between them.
+                Collector location automatically refreshes every 5 seconds.
             </p>
 
             <div class="map-container">
                 <div id="map"></div>
+            </div>
+
+            <div class="map-legend">
+
+                <div class="legend-item">
+                    <span class="legend-dot house-dot"></span>
+                    Your House
+                </div>
+
+                <div class="legend-item">
+                    <span class="legend-dot collector-dot"></span>
+                    Garbage Collector
+                </div>
+
+                <div class="legend-item">
+                    <span class="route-line"></span>
+                    Driving Route
+                </div>
+
+            </div>
+
+            <div class="tracking-message" id="trackingMessage">
+                <i class="fas fa-info-circle"></i>
+                Waiting for tracking information...
             </div>
 
         </div>
@@ -668,32 +904,422 @@ a {
 <!-- BOOTSTRAP -->
 <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-<!-- LEAFLET MAP JAVASCRIPT -->
+<!-- LEAFLET -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
 
 // ==========================================
-// LEAFLET RESIDENT TRUCK TRACKING
+// MAP VARIABLES
 // ==========================================
 
 let map;
 
+let houseMarker = null;
 let collectorMarker = null;
+let routeLine = null;
 
-let firstLocationLoaded = false;
+let housePosition = null;
+let collectorPosition = null;
+
+let firstMapView = false;
+let isLoading = false;
+
+let previousCollectorPosition = null;
+let lastRouteRequest = 0;
 
 let trackingInterval = null;
 
-let isLoading = false;
-
-
-// DEFAULT MAP LOCATION
 const defaultLocation = [15.4802, 120.5979];
 
 
 // ==========================================
-// LOAD COLLECTOR LOCATION
+// HTML ELEMENTS
+// ==========================================
+
+const collectorName =
+    document.getElementById("collectorName");
+
+const collectorStatus =
+    document.getElementById("collectorStatus");
+
+const pickupDate =
+    document.getElementById("pickupDate");
+
+const pickupAddress =
+    document.getElementById("pickupAddress");
+
+const lastUpdated =
+    document.getElementById("lastUpdated");
+
+const drivingDistance =
+    document.getElementById("drivingDistance");
+
+const estimatedTime =
+    document.getElementById("estimatedTime");
+
+const gpsDistance =
+    document.getElementById("gpsDistance");
+
+const trackingMessage =
+    document.getElementById("trackingMessage");
+
+
+// ==========================================
+// CUSTOM MAP ICONS
+// ==========================================
+
+const houseIcon = L.divIcon({
+    className: "custom-map-icon",
+    html: '<div><i class="fas fa-house"></i></div>',
+    iconSize: [38, 38],
+    iconAnchor: [19, 19],
+    popupAnchor: [0, -20]
+});
+
+const collectorIcon = L.divIcon({
+    className: "custom-map-icon",
+    html: '<div><i class="fas fa-truck"></i></div>',
+    iconSize: [38, 38],
+    iconAnchor: [19, 19],
+    popupAnchor: [0, -20]
+});
+
+
+// ==========================================
+// VALIDATE COORDINATES
+// ==========================================
+
+function validCoordinates(lat, lng) {
+
+    return (
+        Number.isFinite(lat) &&
+        Number.isFinite(lng) &&
+        Math.abs(lat) <= 90 &&
+        Math.abs(lng) <= 180
+    );
+
+}
+
+
+// ==========================================
+// HAVERSINE DISTANCE
+// STRAIGHT-LINE DISTANCE IN KM
+// ==========================================
+
+function calculateGPSDistance(pointA, pointB) {
+
+    const earthRadius = 6371;
+
+    const lat1 = pointA[0] * Math.PI / 180;
+    const lat2 = pointB[0] * Math.PI / 180;
+
+    const differenceLat =
+        (pointB[0] - pointA[0]) * Math.PI / 180;
+
+    const differenceLng =
+        (pointB[1] - pointA[1]) * Math.PI / 180;
+
+    const a =
+        Math.sin(differenceLat / 2) *
+        Math.sin(differenceLat / 2) +
+        Math.cos(lat1) *
+        Math.cos(lat2) *
+        Math.sin(differenceLng / 2) *
+        Math.sin(differenceLng / 2);
+
+    const c =
+        2 * Math.atan2(
+            Math.sqrt(a),
+            Math.sqrt(1 - a)
+        );
+
+    return earthRadius * c;
+
+}
+
+
+// ==========================================
+// FORMAT DISTANCE
+// ==========================================
+
+function formatDistance(km) {
+
+    if (!Number.isFinite(km)) {
+        return "--";
+    }
+
+    if (km < 1) {
+        return Math.round(km * 1000) + " m";
+    }
+
+    return km.toFixed(2) + " km";
+
+}
+
+
+// ==========================================
+// FORMAT TRAVEL TIME
+// ==========================================
+
+function formatDuration(seconds) {
+
+    if (!Number.isFinite(seconds)) {
+        return "--";
+    }
+
+    const minutes = Math.round(seconds / 60);
+
+    if (minutes < 1) {
+        return "Less than 1 min";
+    }
+
+    if (minutes < 60) {
+        return minutes + " min";
+    }
+
+    const hours = Math.floor(minutes / 60);
+    const remainingMinutes = minutes % 60;
+
+    if (remainingMinutes === 0) {
+        return hours + " hr";
+    }
+
+    return hours + " hr " + remainingMinutes + " min";
+
+}
+
+
+// ==========================================
+// UPDATE HOUSE MARKER
+// ==========================================
+
+function updateHouseMarker(position, address) {
+
+    housePosition = position;
+
+    if (!houseMarker) {
+
+        houseMarker = L.marker(position, {
+            icon: houseIcon,
+            title: "Your Registered House"
+        }).addTo(map);
+
+    } else {
+
+        houseMarker.setLatLng(position);
+
+    }
+
+    houseMarker.bindPopup(
+        "<strong>Your Registered House</strong><br>" +
+        (address || "Registered household location")
+    );
+
+}
+
+
+// ==========================================
+// UPDATE COLLECTOR MARKER
+// ==========================================
+
+function updateCollectorMarker(position, fullname) {
+
+    collectorPosition = position;
+
+    if (!collectorMarker) {
+
+        collectorMarker = L.marker(position, {
+            icon: collectorIcon,
+            title: "Garbage Collector"
+        }).addTo(map);
+
+    } else {
+
+        collectorMarker.setLatLng(position);
+
+    }
+
+    collectorMarker.bindPopup(
+        "<strong>Garbage Collector</strong><br>" +
+        fullname
+    );
+
+}
+
+
+// ==========================================
+// UPDATE GPS DISTANCE
+// ==========================================
+
+function updateGPSDistance() {
+
+    if (!housePosition || !collectorPosition) {
+        gpsDistance.textContent = "--";
+        return;
+    }
+
+    const distance = calculateGPSDistance(
+        collectorPosition,
+        housePosition
+    );
+
+    gpsDistance.textContent =
+        formatDistance(distance);
+
+}
+
+
+// ==========================================
+// FETCH OSRM DRIVING ROUTE
+// ==========================================
+
+async function updateDrivingRoute(force = false) {
+
+    if (!housePosition || !collectorPosition) {
+        return;
+    }
+
+    const now = Date.now();
+
+    // Do not request a route too frequently
+    if (!force && now - lastRouteRequest < 20000) {
+        return;
+    }
+
+    lastRouteRequest = now;
+
+    const start = collectorPosition;
+    const destination = housePosition;
+
+    const url =
+        "https://router.project-osrm.org/route/v1/driving/" +
+        start[1] + "," + start[0] + ";" +
+        destination[1] + "," + destination[0] +
+        "?overview=full&geometries=geojson&steps=false";
+
+    try {
+
+        const response = await fetch(url);
+
+        if (!response.ok) {
+            throw new Error("Route service unavailable.");
+        }
+
+        const data = await response.json();
+
+        if (
+            data.code !== "Ok" ||
+            !data.routes ||
+            !data.routes.length
+        ) {
+            throw new Error("No driving route found.");
+        }
+
+        const route = data.routes[0];
+
+        // ROAD DISTANCE
+        drivingDistance.textContent =
+            formatDistance(route.distance / 1000);
+
+        // ESTIMATED TRAVEL TIME
+        estimatedTime.textContent =
+            formatDuration(route.duration);
+
+        // DRAW ROAD ROUTE
+        const coordinates =
+            route.geometry.coordinates.map(function(point) {
+
+                return [
+                    point[1],
+                    point[0]
+                ];
+
+            });
+
+        if (routeLine) {
+
+            routeLine.setLatLngs(coordinates);
+
+        } else {
+
+            routeLine = L.polyline(coordinates, {
+                color: "#198754",
+                weight: 5,
+                opacity: 0.85,
+                lineJoin: "round"
+            }).addTo(map);
+
+        }
+
+        trackingMessage.innerHTML =
+            '<i class="fas fa-check-circle text-success"></i>' +
+            ' Driving route successfully updated.';
+
+    } catch (error) {
+
+        console.error("OSRM route error:", error);
+
+        drivingDistance.textContent = "Unavailable";
+        estimatedTime.textContent = "Unavailable";
+
+        trackingMessage.innerHTML =
+            '<i class="fas fa-exclamation-circle"></i>' +
+            ' Driving route is temporarily unavailable. ' +
+            'GPS distance and map markers are still available.';
+
+    }
+
+}
+
+
+// ==========================================
+// CHECK IF COLLECTOR HAS MOVED
+// ==========================================
+
+function collectorMovedEnough(newPosition) {
+
+    if (!previousCollectorPosition) {
+        return true;
+    }
+
+    const movement = calculateGPSDistance(
+        previousCollectorPosition,
+        newPosition
+    );
+
+    // Recalculate route after at least 30 meters of movement
+    return movement >= 0.03;
+
+}
+
+
+// ==========================================
+// FORMAT GPS UPDATE TIME
+// ==========================================
+
+function formatUpdatedTime(value) {
+
+    if (!value) {
+        return "Unavailable";
+    }
+
+    // Convert MySQL datetime into a browser-readable local date
+    const date = new Date(
+        String(value).replace(" ", "T")
+    );
+
+    if (Number.isNaN(date.getTime())) {
+        return value;
+    }
+
+    return date.toLocaleString();
+
+}
+
+
+// ==========================================
+// LOAD COLLECTOR AND HOUSE INFORMATION
 // ==========================================
 
 async function loadCollectorLocation() {
@@ -703,12 +1329,6 @@ async function loadCollectorLocation() {
     }
 
     isLoading = true;
-
-    const nameElement =
-        document.getElementById("collectorName");
-
-    const statusElement =
-        document.getElementById("collectorStatus");
 
     try {
 
@@ -731,7 +1351,7 @@ async function loadCollectorLocation() {
 
             collector = JSON.parse(responseText);
 
-        } catch (jsonError) {
+        } catch (error) {
 
             console.error(
                 "Invalid API response:",
@@ -739,7 +1359,7 @@ async function loadCollectorLocation() {
             );
 
             throw new Error(
-                "The tracking API returned an invalid response. Check the PHP file for errors."
+                "Invalid tracking API response. Check the PHP API for errors."
             );
 
         }
@@ -747,125 +1367,260 @@ async function loadCollectorLocation() {
         if (!response.ok) {
 
             throw new Error(
-                collector.message || "Unable to load collector."
+                collector.message || "Unable to retrieve tracking information."
             );
 
         }
 
-
-        // NO ASSIGNED COLLECTOR
+        // NO ASSIGNED SPECIAL PICKUP
         if (!collector.success) {
 
-            nameElement.textContent =
-                collector.message || "No assigned collector found.";
+            collectorName.textContent =
+                "No assigned collector found";
 
-            statusElement.textContent =
-                "Waiting for an assigned collector.";
+            collectorStatus.textContent =
+                collector.message ||
+                "No approved special pickup was found.";
 
-            statusElement.className =
+            collectorStatus.className =
                 "collector-status status-waiting";
 
-            if (collectorMarker) {
+            trackingMessage.textContent =
+                collector.message ||
+                "Waiting for an approved special pickup request.";
 
-                map.removeLayer(collectorMarker);
+            pickupDate.textContent =
+                "Pickup date: Not available";
 
-                collectorMarker = null;
+            pickupAddress.textContent =
+                "Pickup address: Not available";
 
-            }
+            lastUpdated.textContent =
+                "Last GPS update: Not available";
 
-            firstLocationLoaded = false;
+            drivingDistance.textContent = "--";
+            estimatedTime.textContent = "--";
+            gpsDistance.textContent = "--";
 
             return;
 
         }
 
+        // ==================================
+        // HOUSE INFORMATION
+        // ==================================
 
-        // COLLECTOR NAME
-        nameElement.textContent =
+        const houseLat = Number(collector.house_latitude);
+        const houseLng = Number(collector.house_longitude);
+
+        if (!validCoordinates(houseLat, houseLng)) {
+            throw new Error(
+                "Your household GPS coordinates are invalid."
+            );
+        }
+
+        const newHousePosition = [
+            houseLat,
+            houseLng
+        ];
+
+        updateHouseMarker(
+            newHousePosition,
+            collector.house_address
+        );
+
+        pickupAddress.textContent =
+            "Pickup address: " +
+            (collector.collection_address ||
+             collector.house_address ||
+             "Registered household");
+
+        // ==================================
+        // PICKUP DATE AND TIME
+        // ==================================
+
+        let dateText = "Not available";
+
+        if (collector.collection_date) {
+            dateText = collector.collection_date;
+
+            if (collector.requested_time) {
+                dateText += " at " + collector.requested_time;
+            }
+        }
+
+        pickupDate.textContent =
+            "Pickup date: " + dateText;
+
+        // ==================================
+        // COLLECTOR INFORMATION
+        // ==================================
+
+        collectorName.textContent =
             "Collector: " + collector.fullname;
 
+        const locationAvailable =
+            collector.location_available === true ||
+            Number(collector.location_available) === 1;
 
-        // COLLECTOR COORDINATES
-        const latitude = Number(collector.latitude);
+        const isOnline =
+            Number(collector.is_online) === 1;
 
-        const longitude = Number(collector.longitude);
+        lastUpdated.textContent =
+            "Last GPS update: " +
+            formatUpdatedTime(collector.updated_at);
 
-        if (
-            !Number.isFinite(latitude) ||
-            !Number.isFinite(longitude) ||
-            Math.abs(latitude) > 90 ||
-            Math.abs(longitude) > 180
-        ) {
+        // ==================================
+        // NO COLLECTOR GPS LOCATION YET
+        // ==================================
 
-            throw new Error(
-                "Invalid collector coordinates."
-            );
+        if (!locationAvailable) {
+
+            collectorStatus.textContent =
+                "Waiting for collector GPS location...";
+
+            collectorStatus.className =
+                "collector-status status-waiting";
+
+            drivingDistance.textContent = "--";
+            estimatedTime.textContent = "--";
+            gpsDistance.textContent = "--";
+
+            trackingMessage.innerHTML =
+                '<i class="fas fa-info-circle"></i>' +
+                ' Your house is displayed on the map. ' +
+                'The collector marker and route will appear ' +
+                'when the collector shares their GPS location.';
+
+            if (!firstMapView) {
+
+                map.setView(housePosition, 16);
+                firstMapView = true;
+
+            }
+
+            return;
 
         }
 
-        const position = [
+        // ==================================
+        // VALIDATE COLLECTOR GPS
+        // ==================================
+
+        const latitude = Number(collector.latitude);
+        const longitude = Number(collector.longitude);
+
+        if (!validCoordinates(latitude, longitude)) {
+            throw new Error("Invalid collector GPS coordinates.");
+        }
+
+        const newCollectorPosition = [
             latitude,
             longitude
         ];
 
-
+        // ==================================
         // ONLINE / OFFLINE STATUS
-        const isOnline =
-            Number(collector.is_online) === 1;
-
+        // ==================================
 
         if (isOnline) {
 
-            statusElement.innerHTML =
-                '<i class="fas fa-circle me-1"></i> Online • GPS location updating';
+            collectorStatus.innerHTML =
+                '<i class="fas fa-circle me-1"></i>' +
+                ' Online - GPS location updating';
 
-            statusElement.className =
+            collectorStatus.className =
                 "collector-status status-online";
 
         } else {
 
-            statusElement.innerHTML =
-                '<i class="fas fa-circle me-1"></i> Offline • Showing last known location';
+            collectorStatus.innerHTML =
+                '<i class="fas fa-circle me-1"></i>' +
+                ' Offline - Showing last known location';
 
-            statusElement.className =
+            collectorStatus.className =
                 "collector-status status-offline";
 
         }
 
+        // ==================================
+        // UPDATE COLLECTOR MARKER
+        // ==================================
 
-        // CREATE OR UPDATE LEAFLET MARKER
-        if (!collectorMarker) {
+        const moved = collectorMovedEnough(
+            newCollectorPosition
+        );
 
-            collectorMarker = L.marker(position, {
-                title: collector.fullname,
-                alt: "Garbage truck location"
-            }).addTo(map);
+        updateCollectorMarker(
+            newCollectorPosition,
+            collector.fullname
+        );
 
-            collectorMarker.bindPopup(
-                "<strong>Garbage Collector</strong><br>" +
-                collector.fullname
-            );
+        // ==================================
+        // UPDATE GPS DISTANCE
+        // ==================================
 
-        } else {
+        updateGPSDistance();
 
-            collectorMarker.setLatLng(position);
+        // ==================================
+        // INITIAL MAP VIEW
+        // ==================================
 
-            collectorMarker.setPopupContent(
-                "<strong>Garbage Collector</strong><br>" +
-                collector.fullname
-            );
+        if (!firstMapView) {
+
+            const bounds = L.latLngBounds([
+                housePosition,
+                collectorPosition
+            ]);
+
+            map.fitBounds(bounds, {
+                padding: [60, 60],
+                maxZoom: 16
+            });
+
+            firstMapView = true;
 
         }
 
+        // ==================================
+        // UPDATE ROAD ROUTE
+        // ==================================
 
-        // CENTER MAP ON FIRST LOCATION
-        if (!firstLocationLoaded) {
+        const shouldUpdateRoute =
+            !routeLine ||
+            moved ||
+            Date.now() - lastRouteRequest >= 30000;
 
-            map.setView(position, 16);
+        if (shouldUpdateRoute) {
 
-            collectorMarker.openPopup();
+            await updateDrivingRoute(
+                !routeLine || moved
+            );
 
-            firstLocationLoaded = true;
+            previousCollectorPosition = [
+                newCollectorPosition[0],
+                newCollectorPosition[1]
+            ];
+
+        }
+
+        // ==================================
+        // TRACKING STATUS MESSAGE
+        // ==================================
+
+        if (isOnline) {
+
+            trackingMessage.innerHTML =
+                '<i class="fas fa-satellite-dish text-success"></i>' +
+                ' Collector location is being monitored. ' +
+                'The map checks for updates every 5 seconds.';
+
+        } else {
+
+            trackingMessage.innerHTML =
+                '<i class="fas fa-exclamation-circle text-warning"></i>' +
+                ' Collector is currently offline. ' +
+                'The map is displaying the last recorded GPS location.';
 
         }
 
@@ -876,15 +1631,15 @@ async function loadCollectorLocation() {
             error
         );
 
-        nameElement.textContent =
-            "Collector Information";
-
-        statusElement.textContent =
+        collectorStatus.textContent =
             error.message ||
-            "Unable to retrieve collector location. Retrying...";
+            "Unable to retrieve tracking information. Retrying...";
 
-        statusElement.className =
+        collectorStatus.className =
             "collector-status status-offline";
+
+        trackingMessage.textContent =
+            "Tracking update failed. The system will try again automatically.";
 
     } finally {
 
@@ -896,7 +1651,7 @@ async function loadCollectorLocation() {
 
 
 // ==========================================
-// INITIALIZE LEAFLET MAP
+// INITIALIZE MAP
 // ==========================================
 
 function initMap() {
@@ -906,8 +1661,7 @@ function initMap() {
         13
     );
 
-
-    // OPENSTREETMAP TILE LAYER
+    // OPENSTREETMAP
     L.tileLayer(
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
@@ -918,16 +1672,12 @@ function initMap() {
         }
     ).addTo(map);
 
-
-    // LOAD INITIAL COLLECTOR LOCATION
+    // LOAD INITIAL DATA
     loadCollectorLocation();
-
 
     // REFRESH EVERY 5 SECONDS
     if (trackingInterval) {
-
         clearInterval(trackingInterval);
-
     }
 
     trackingInterval = setInterval(
@@ -935,29 +1685,24 @@ function initMap() {
         5000
     );
 
-
-    // FIX MAP DISPLAY SIZE
-    setTimeout(function () {
-
+    // FIX MAP SIZE
+    setTimeout(function() {
         map.invalidateSize();
-
     }, 300);
 
 }
 
 
 // ==========================================
-// START MAP AFTER PAGE LOAD
+// START MAP
 // ==========================================
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function() {
 
     if (typeof L === "undefined") {
 
-        console.error("Leaflet failed to load.");
-
-        document.getElementById("collectorStatus").textContent =
-            "Map library failed to load. Please check your internet connection.";
+        collectorStatus.textContent =
+            "Map library failed to load. Check your internet connection.";
 
         return;
 
